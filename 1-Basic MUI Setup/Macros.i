@@ -44,7 +44,7 @@ STACKCOUNT		SET	STACKCOUNT+8
 			pea	\2
 			ENDM
 
-STACKADRTAG		MACRO						; Register,ti_tag
+STACKADRTAG		MACRO						; Address,ti_tag
 			pea	\1
 STACKCOUNT		SET	STACKCOUNT+8
 			pea	\2
