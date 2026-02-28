@@ -8,7 +8,7 @@
 **
 **			This code demontrates how to build a simple MUI application that:
 **			- have one Window containing one vertical layout group nested with two horizontal groups
-**			- four text/buttons organized in to rows (2 buttons in each horizontal group)
+**			- four text/buttons organized in two rows (2 buttons in each horizontal group)
 **			- adds application quit notify to Quit button and the windows close gadget
 **			- adds a callback hook to Button1 (performs a DisplayBeep)
 **			- Button2 and Button3 have no action
@@ -25,8 +25,6 @@
 			include	"exec/exec_lib.i"
 			include	"intuition/intuition.i"
 			include	"intuition/intuition_lib.i"
-			include	"intuition/classes.i"
-			include	"utility/utility_lib.i"
 			include	"libraries/mui.i"
 			include	"lvo/mui_lib.i"
 
@@ -49,7 +47,6 @@ MT_WINDOWHEIGHT		equ 300
 			APTR	mt_Intui_Window
 			APTR	mt_Intui_UserPort
 			APTR	mt_MUI_Application
-			LONG	mt_MUI_AppSignal
 			APTR	mt_MUI_Window
 			APTR	mt_MUI_Group
 			APTR	mt_MUI_QuitButton
@@ -321,7 +318,6 @@ mt_BuildGui		movem.l	d5/a0-a1/a6,-(sp)
 
 mt_MUIName		dc.b	"muimaster.library",0
 mt_IntuitionName	dc.b	"intuition.library",0
-mt_UtilityName		dc.b	"utility.library",0
 mt_WindowTitle		dc.b	"My MUI Window",0
 mt_QuitButtonTitle	dc.b	"Quit",0
 mt_Button1Title		dc.b	"Button 1",0
@@ -341,8 +337,7 @@ mt_StructPointer	dc.l	0
 mt_Method_Input		dc.l	MUIM_Application_NewInput,mt_Signals
 			dc.l	0
 
-mt_Method_About		dc.l    MUIM_Application_AboutMUI,0
-			dc.l	0
+mt_Signals		ds.l	1							; Referenced from mt_Method_Input structure
 
 
 mt_Method_WindowSetup	dc.l	MUIM_Notify,MUIA_Window_CloseRequest,TRUE
@@ -361,5 +356,4 @@ mt_Hook_Button1		ds.b	MLN_SIZE
 			dc.l	mt_Button1Pressed					; h_entry - Pointing to routine to be executed
 			dc.l	0,0							; h_SubEntry, h_data
 
-mt_Signals		ds.l	1
 
