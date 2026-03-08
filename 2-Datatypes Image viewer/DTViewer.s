@@ -70,7 +70,7 @@ dtv_Main		move.l	4.w,a6
 			beq	.allocError
 			
 			lea	dtv_DatatypesName,a1
-			moveq	#44,d0							; V44 = at least AmigaOS 3.5/3,9 - ApolloOS have version 45
+			moveq	#43,d0							; V43 = at least AmigaOS 3.5 - ApolloOS have version 45
 			jsr	_LVOOpenLibrary(a6)					; Open datatypes.library
 			move.l	d0,dtv_DatatypesBase(a5)
 			beq	.dtlibError
