@@ -1,4 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=input
 *.080 -text diff
+*.m68k -text diff
 *.raw -text diff
