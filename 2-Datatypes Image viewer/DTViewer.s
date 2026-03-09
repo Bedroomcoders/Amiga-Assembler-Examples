@@ -144,7 +144,7 @@ dtv_CheckImageSize	movem.l	d0-d3/a0,-(sp)
 			move.w	(a0)+,d0						; d0 = Bitmap width
 			move.w	(a0)+,d1						; d1 = Bitmap height
 			
-			cmp.w	d2,d0							; Is bitmap widther than window?
+			cmp.w	d2,d0							; Is bitmap wider than window?
 			ble.s	.noshrinkWidth
 			move.w	d2,d0
 
@@ -374,7 +374,7 @@ dtv_DatatypesName	dc.b	"datatypes.library",0
 dtv_IntuitionName	dc.b	"intuition.library",0
 dtv_GraphicsName	dc.b	"graphics.library",0
 dtv_WindowTitle		dc.b	"Datatypes image viewer",0
-dtv_ImageFile		dc.b	"Nio.png",0
+dtv_ImageFile		dc.b	"NioCars.png",0
 			even
 
 dtv_ProcLayoutMsg	dc.l	DTM_PROCLAYOUT				; Method
