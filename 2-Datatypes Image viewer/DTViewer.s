@@ -374,7 +374,7 @@ dtv_DatatypesName	dc.b	"datatypes.library",0
 dtv_IntuitionName	dc.b	"intuition.library",0
 dtv_GraphicsName	dc.b	"graphics.library",0
 dtv_WindowTitle		dc.b	"Datatypes image viewer",0
-dtv_ImageFile		dc.b	"NioCars.png",0
+dtv_ImageFile		dc.b	"Nio.png",0
 			even
 
 dtv_ProcLayoutMsg	dc.l	DTM_PROCLAYOUT				; Method
